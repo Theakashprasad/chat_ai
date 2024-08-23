@@ -124,6 +124,16 @@ function App() {
       setIsLoading(false);
       return;
     }
+     if (userInput.trim().toLowerCase() === 'neethu s a') {
+      setChatHistory(prevHistory => [
+        ...prevHistory,
+        { role: 'user', text: userInput },
+        { role: 'model', text: 'You have a deep, compassionate nature. You might be small in stature, but you carry a big heart—someone who genuinely cares about others. You may not always catch every word in a conversation, but you excel at sensing the emotions and feelings behind those words. Your warmth and understanding make you an instant friend to anyone who meets you. Your presence is comforting, and your ability to connect with others on a deeper level makes you truly special. You have a unique gift of motivating and uplifting those around you, showing that sometimes the most important things in life are felt rather than spoken and last Youre kunjans chembankala' }
+      ]);
+      setUserInput('');
+      setIsLoading(false);
+      return;
+    }
 
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
