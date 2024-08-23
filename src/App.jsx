@@ -114,6 +114,16 @@ function App() {
       setIsLoading(false);
       return;
     }
+     if (userInput.trim().toLowerCase() === 'amal') {
+      setChatHistory(prevHistory => [
+        ...prevHistory,
+        { role: 'user', text: userInput },
+        { role: 'model', text: 'theevandi and walking liquor store' }
+      ]);
+      setUserInput('');
+      setIsLoading(false);
+      return;
+    }
 
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
