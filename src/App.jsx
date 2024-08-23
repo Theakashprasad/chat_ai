@@ -104,6 +104,16 @@ function App() {
       setIsLoading(false);
       return;
     }
+     if (userInput.trim().toLowerCase() === 'navya') {
+      setChatHistory(prevHistory => [
+        ...prevHistory,
+        { role: 'user', text: userInput },
+        { role: 'model', text: 'navya poe kaliyanum kazhikk samad.ai parayn prj' }
+      ]);
+      setUserInput('');
+      setIsLoading(false);
+      return;
+    }
 
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
